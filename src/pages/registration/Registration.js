@@ -10,27 +10,13 @@ import "./registration.scss";
 configure({ adapter: new Adapter() });
 class Registration extends Component {
 
-	constructor(props, context) {
-		super(props, context);
-		this.state = {
-			user:{
-				email: '',
-				password:''
-			}
-		};
-	}
-	changeValue=(field,val)=>{
-		console.log(field,val);
-	}
-
 	submit = (values) => {
         this.props.signup(values)
     }
     render() {
-    	console.log(this.props);
         return (
             <div>
-                <RegistrationForm onSubmit={this.submit} user={this.state.user} changeValue={this.props.changeValue}/>
+                <RegistrationForm onSubmit={this.submit} login={this.props.signupReducer}/>
             </div>
         );
     }

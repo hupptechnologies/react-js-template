@@ -3,12 +3,11 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchUserDetails } from "./../../actions/userAction";
+import { fetchUserListing } from "./../../actions/userAction";
 import { Panel } from 'react-bootstrap';
-import "./home.scss";
+import "./listing.scss";
 
 configure({ adapter: new Adapter() });
-
 
 const Details = ({details})=>{
     return (
@@ -21,23 +20,33 @@ const Details = ({details})=>{
         </Panel>
     )
 }
+const USERS = ({data})=>{
+    return(
+        <div key={data.id}>
+            <div className="details_cls">
+                <Details details = {data} />
+            </div>
+        </div>
+    )
+}
 
-class Home extends Component {
+class Listing extends Component {
 	componentWillMount(){
-		this.props.fetchUserDetails();
+		this.props.fetchUserListing();
 	}
     render() {
-    	const {details } = this.props.userReducer;
+    	const {listing} = this.props.userReducer;
         return (
-            <div className="details_cls">
+            <div>
                 {
-                	details.name
-                	?
-                	<Details details={details}/>
-                	:
-                	<p>Loading</p>
+                    listing.length >0 
+                    ?
+                    listing.map((data)=>{
+                        return <USERS data={data} key={data.id}/>
+                    }) 
+                    :
+                    <p>Loading</p>
                 }
-
             </div>
         );
     }
@@ -47,11 +56,11 @@ const mapStateToProps = ({ userReducer }) => ({
 });
 const mapDispatchToProps = dispatch => 
     bindActionCreators({
-        fetchUserDetails,
+        fetchUserListing,
 },dispatch);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(Listing);
 

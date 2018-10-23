@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect,Switch,Route } from 'react-router';
 import Home from './pages/home/home';
+import Listing from "./pages/listing/listing";
 import Login from './pages/login/login';
 import Registration from './pages/registration/Registration';
 import { connect } from 'react-redux';
@@ -13,22 +14,25 @@ class Routes extends React.Component {
             <div className="app_route">
                 <Switch>
                     <Route exact path="/" render={() => (
-        	           this.props.loginReducer ? <Redirect to="/home" /> : <Redirect push to="/login" />
+        	           this.props.loginReducer ? <Redirect to="/profile" /> : <Redirect push to="/login" />
         	        )}/>
 
-                    <Route exact path="/home" render={() => (
+                    <Route exact path="/profile" render={() => (
                         this.props.loginReducer ? <Home/> : <Redirect push to="/login" />
+                    )}/>
+                    <Route exact path="/listing" render={() => (
+                        this.props.loginReducer ? <Listing/> : <Redirect push to="/login" />
                     )}/>
 
                     <Route exact path="/login" render={() => (
-                        this.props.loginReducer ? <Redirect to="/home" /> : <Login/>
+                        this.props.loginReducer ? <Redirect to="/profile" /> : <Login/>
                     )}/>
                     <Route exact path="/registration" render={() => (
-                         this.props.loginReducer ?  <Redirect to="/home" /> : <Registration/>
+                         this.props.loginReducer ?  <Redirect to="/profile" /> : <Registration/>
                     )}/>
 
                     <Route path="**" render={() => (
-                        this.props.loginReducer ? <Redirect to="/home" /> : <Redirect to="/login" />
+                        this.props.loginReducer ? <Redirect to="/profile" /> : <Redirect to="/login" />
                     )}/>
                 </Switch>
             </div>

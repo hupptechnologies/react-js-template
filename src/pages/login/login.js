@@ -5,13 +5,11 @@ import { bindActionCreators } from 'redux';
 import { login } from "./../../actions/loginAction";
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
-
 import "./login.scss";
 
 configure({ adapter: new Adapter() });
-class Login extends Component {
 
+class Login extends Component {
     submit = (values) => {
         this.props.login(values)
     }

@@ -3,14 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from "react-router-dom";
 
 class RegistrationForm extends Component {
-
-    handleChange(e) {
-        // this.setState({ value: e.target.value });
-    }
-
-
     render() {
-        console.log(this.props);
         const { handleSubmit } = this.props;
 
         return (
@@ -26,6 +19,7 @@ class RegistrationForm extends Component {
                         <Field name="password" id="password" component="input" type="password"/>
                     </div>
                     <div className="error_cls">
+                        <span>{this.props.login.msg ? this.props.login.msg : ''}</span>
                     </div>
                     <div className="form_btn">
                         <button type="submit" className="btn">Create</button>

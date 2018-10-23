@@ -12,12 +12,9 @@ class AuthService {
         });
     }
     static signup(data) {
-        console.log("signup");
         return axios.post(`${API}/signup`,data, headers).then((response)=> {
-            console.log(response);
             return response;
         }).catch((error)=> {
-            console.log(error);
             throw (error.response);
         });
     }

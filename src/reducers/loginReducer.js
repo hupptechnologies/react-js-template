@@ -1,5 +1,5 @@
 let data = localStorage.getItem("ldasdewreogin");
-const login = (data) ? {success:true,type:""} : {success:false,type:""};
+const login = (data) ? {success:true,type:"",loading:false} : {success:false,type:"",loading:false};
 
 export default (state = login, action) => {
 	if(!action.type){
