@@ -1,0 +1,23 @@
+@import "./../../scss/variable.scss";
+header{
+	display: inline-block;
+    width: 100%;
+	border-bottom: 1px solid rgba($grey, 0.1);
+	.formcontrol{
+		width: 100%;
+		.headerleft{
+			float: left;
+			.sitetitle{
+				margin: 0;
+				font-size: 28px;
+				padding: 10px;
+			}
+		}
+		.headerright{
+			float: right;
+			.btn{
+				margin: 10px;
+			}
+		}
+	}
+}

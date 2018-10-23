@@ -1,0 +1,10 @@
+@import "./../../scss/variable.scss";
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid rgba($grey, 0.1);
+	p{
+		padding: 10px;
+	}
+}
