@@ -29,7 +29,7 @@ class Header extends Component {
                     </LinkContainer>
                     <LinkContainer to="/profile" activeHref="">
                         <NavItem eventKey={1}>
-                          Home
+                          Profile
                         </NavItem>
                     </LinkContainer>
                 </Nav>
