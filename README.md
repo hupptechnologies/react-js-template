@@ -12,9 +12,5 @@
 
 # Production Server #
   - 1. Create Build : npm run build
-  - 2. Run Prod build : npm run prod-server
-
-# Run Jest testing tool #
-  -  npm run test
 
 
